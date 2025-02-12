@@ -17,8 +17,9 @@ def simple_work_calc(n, a, b):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	if n <= 1:
+		return n # Base case: if n is very small, return n
+	return a * simple_work_calc(n//b, a, b) + n # Recursive case: compute the value of W(n)
 
 def work_calc(n, a, b, f):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + f(n)
@@ -32,8 +33,9 @@ def work_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	if n <= 1:
+		return f(n) # Base case
+	return a * work_calc(n//b, a, b, f) + f(n)
 
 def span_calc(n, a, b, f):
 	"""Compute the span associated with the recurrence $W(n) = aW(n/b) + f(n)
@@ -47,8 +49,9 @@ def span_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	if n <= 1:
+		return f(n)
+	return span_calc(n // b, a, b, f) + f(n)
 
 
 
